@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     private
 
     def authenticate_user!
-        redirect_to root_path, alert: "You must be logged in to do that" unless user_signed_in?  
+        redirect_to root_path, alert: "Musisz się zalogować, żeby z tego korzystać" unless user_signed_in?  
     end 
 
     def current_user
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
     def login(user)
         Current.user = user
         reset_session
-        session[:user_id] = user.ids
+        session[:user_id] = user.id
     end
 
     def logout(user)

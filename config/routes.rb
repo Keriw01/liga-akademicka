@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'teams/join'
+  get 'profiles/show'
   get 'passwords/edit'
   get 'passwords/update'
   get 'passwords/password_params'
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
     resource :session
     resource :new_pasword_reset
     resource :password
+    resource :profile, only: [:show]
+    post 'join_team', to: 'teams#join'
 
     root "main#index"
 end

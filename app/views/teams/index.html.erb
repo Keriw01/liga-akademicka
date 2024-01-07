@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <h1 class="text-center">Lista drużyn</h1>
+  <% if @teams.empty? %>
+    <div class="container mt-5 col-3">
+      <%= link_to "Utwórz drużynę", new_team_path, class: "btn btn-primary mr-2" %>
+    </div>
+  <% else %>
+    <% @teams.each do |team| %>
+      <div class="card mb-3 mt-5">
+        <div class="card-body">
+          <h5 class="card-title"><%= team.name %></h5>
+          <p class="card-text"><%= team.description %></p>
+          <div class="row justify-content-end">
+            <div class="col-2">
+              <%= link_to "Edytuj", edit_team_path(team), class: "btn btn-warning" %>
+            </div>
+            <div class="col-2">
+              <%= button_to "Usuń", team_path(team), method: :delete, class: "btn btn-danger", form: { id: "delete-team-form" } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var deleteTeamForm = document.getElementById("delete-team-form");
+
+    if (deleteTeamForm) {
+      deleteTeamForm.addEventListener("submit", function(event) {
+        var confirmed = confirm("Czy na pewno chcesz usunąć drużynę?");
+
+        if (!confirmed) {
+          event.preventDefault();
+        }
+      });
+    }
+  });
+</script>

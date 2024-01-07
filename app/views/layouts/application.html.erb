@@ -42,20 +42,20 @@
 
   <body class="d-flex flex-column ">
     <% if notice %>
-    <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert" style="position: absolute; top: 5%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+    <div class="alert alert-success alert-dismissible fade show custom-alert" role="alert" style="position: absolute; top: 7.5%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
       <%= notice %>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
     <% end %>
 
     <% if alert %>
-      <div class="alert alert-danger alert-dismissible fade show custom-alert" role="alert" style="position: absolute; top: 5%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
+      <div class="alert alert-danger alert-dismissible fade show custom-alert" role="alert" style="position: absolute; top: 7.5%; left: 50%; transform: translate(-50%, -50%); z-index: 1000;">
         <%= alert %>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
     <% end %>
 
-    <div class="mt-0">
+    <div class="mt-5">
         <%= yield %>
     </div>
     

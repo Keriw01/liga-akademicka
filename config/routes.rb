@@ -13,7 +13,11 @@ Rails.application.routes.draw do
     resource :password
     resource :profile, only: [:show]
     post 'join_team', to: 'teams#join'
-
+    resources :teams do
+      member do
+        post 'choose_team', to: 'teams#choose_team'
+      end
+    end
     root "main#index"
 end
   

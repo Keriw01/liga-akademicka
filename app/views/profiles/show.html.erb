@@ -10,16 +10,23 @@
       <% else %>
         <p>Nieprzypisany do żadnej drużyny</p>
       <% end %>
+       <%= link_to "Edytuj hasło", edit_password_path, class: "btn btn-warning" %>
     </div>
   </div>
   <% if @user.role == "admin" %>
-    <div class="row mt-4">
-      <div class="col-md-6 offset-md-3">
-        <h3>Panel Administratora</h3>
-        <%= link_to "Utwórz drużynę", new_team_path, class: "btn btn-success mr-2" %>
-        <%= link_to "Zarządzaj zespołami", teams_path, class: "btn btn-primary" %>
-      </div>
+  <div class="row mt-4">
+  <div class="col-md-12 offset-md-3">
+    <h3>Panel Administratora</h3>
+    <div style="display: flex; gap: 8px;">
+      <%= link_to "Zarządzaj zespołami", teams_path, class: "btn btn-primary" %>
+      <%= link_to "Utwórz drużynę", new_team_path, class: "btn btn-success" %>
+      <%= link_to "Zarządzaj spotkaniami", events_path, class: "btn btn-primary" %>
     </div>
+  </div>
+</div>
+
+
+
   <% else %>
     <div class="row mt-4">
       <div class="col-md-6 offset-md-3">

@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <% if notice.present? %>
+  <div id="notice" class="alert alert-info">
+    <%= notice %>
+  </div>
+<% end %>
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Szczegóły spotkania</h5>
+
+      <p class="card-text">
+        <strong>Nazwa pierwszej drużyny:</strong>
+        <%= @event.name_first_team %>
+      </p>
+
+      <p class="card-text">
+        <strong>Nazwa drugiej drużyny:</strong>
+        <%= @event.name_second_team %>
+      </p>
+
+      <p class="card-text">
+        <strong>Data spotkania:</strong>
+        <%= @event.date %>
+      </p>
+
+      <p class="card-text">
+        <strong>Wynik pierwszego zespołu:</strong>
+        <%= @event.team_first_score %>
+      </p>
+
+      <p class="card-text">
+        <strong>Wynik drugiego zespołu:</strong>
+        <%= @event.team_second_score %>
+      </p>
+
+      <%= link_to 'Edytuj', edit_event_path(@event), class: "btn btn-primary" %>
+      <%= link_to 'Powrót', events_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>

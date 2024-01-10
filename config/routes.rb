@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resource :new_pasword_reset
     resource :password
     resource :profile, only: [:show]
+    resources :events
     post 'join_team', to: 'teams#join'
     resources :teams do
       member do

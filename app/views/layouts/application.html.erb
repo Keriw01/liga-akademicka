@@ -28,13 +28,7 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item my-2 my-lg-0 d-flex">
           <% if user_signed_in? %>
-            <%if current_page?(profile_path)%>
-              <%= link_to "Edytuj hasło", edit_password_path, class: "nav-link custom-margin-right" %>
-            <% else %>
-              <%if current_page?(edit_password_path)%>
-                <%= link_to "Edytuj hasło", edit_password_path, class: "nav-link active custom-margin-right" %>
-              <% end %>
-            <% end %>
+            <%= link_to "Spotkania", events_path, class: "nav-link custom-margin-right #{'active' if current_page?(events_path)}" %>
             <%= link_to "Profil", profile_path, class: "nav-link custom-margin-right #{'active' if current_page?(profile_path)}" %>
             <%= button_to "Wyloguj", session_path, method: :delete, class: "nav-link" %>
           <% else %>

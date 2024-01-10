@@ -1,5 +1,49 @@
 <div class="container mt-5">
   <h1 class="text-center">Edytuj drużynę</h1>
-
-  <%= render 'form' %>
+  <%# Formularz edycji pól tekstowych %>
+  <%= form_with(model: @team, url: team_path(@team), method: :patch) do |form| %>
+    <% if @team.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <% @team.errors.full_messages.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="mb-3">
+      <%= form.label :name, "Nazwa drużyny" %>
+      <%= form.text_field :name, class: "form-control", required: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description, "Opis drużyny" %>
+      <%= form.text_area :description, class: "form-control", required: true %>
+    </div>
+    <div class="mb-3 d-flex justify-content-center">
+      <%= form.submit "Zaktualizuj drużynę", class: "btn btn-success" %>
+    </div>
+  <% end %>
+  <%# Lista członków do usuwania i dodawania %>
+  <div class="mb-3">
+    <% if @team.users.present? %>
+      <h2>Członkowie drużyny</h2>
+      <%# Usuwanie członków %>
+      <% @team.users.each do |user| %>
+        <div class="d-flex justify-content-between p-1">
+          <%= user.email %>
+          <%= button_to "Usuń", remove_user_team_path(@team, user), method: :delete, class: 'btn btn-danger btn-sm' %>
+        </div>
+        <hr class="my-2">
+      <% end %>
+    <% else %>
+      <p>Brak członków drużyny.</p>
+    <% end %>
+    <%# Dodawanie nowych członków %>
+    <h3>Dodaj nowych członków</h3>
+    <% User.where(team_id: nil).or(User.where.not(id: @team.users)).each do |user| %>
+      <div class="d-flex justify-content-between p-1">
+        <%= user.email %>
+        <%= button_to "Dodaj", add_user_team_path(@team, user), method: :post, class: 'btn btn-success btn-sm' %>
+      </div>
+      <hr class="my-2">
+    <% end %>
+  </div>
 </div>

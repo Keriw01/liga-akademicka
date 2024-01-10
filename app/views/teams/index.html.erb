@@ -5,11 +5,21 @@
       <%= link_to "Utwórz drużynę", new_team_path, class: "btn btn-primary mr-2" %>
     </div>
   <% else %>
+    <%# Lista Drużyn %>
     <% @teams.each do |team| %>
       <div class="card mb-3 mt-5">
         <div class="card-body">
           <h5 class="card-title"><%= team.name %></h5>
           <p class="card-text"><%= team.description %></p>
+          <%# Wypisanie użytkowników z drużyny %>
+          <p class="card-text">
+            Użytkownicy drużyny:
+            <% team.users.each do |user| %>
+              <%= user.email %>
+              <%# Dodaj spację między adresami email %>
+              <%= ", " unless user == team.users.last %>
+            <% end %>
+          </p>
           <div class="row justify-content-end">
             <div class="col-2">
               <%= link_to "Edytuj", edit_team_path(team), class: "btn btn-warning" %>

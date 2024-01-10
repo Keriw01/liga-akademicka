@@ -35,16 +35,3 @@
     </div>
   <% end %>
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var teamSelect = document.getElementById("team_id");
-    var editButton = document.getElementById("edit-button");
-    var deleteButton = document.getElementById("delete-button");
-
-    teamSelect.addEventListener("change", function() {
-      var isTeamSelected = teamSelect.value !== "";
-      editButton.disabled = !isTeamSelected;
-      deleteButton.disabled = !isTeamSelected;
-    });
-  });
-</script>

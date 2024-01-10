@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'team_members/create'
+  get 'team_members/destroy'
   get 'teams/join'
   get 'profiles/show'
   get 'passwords/edit'
@@ -15,7 +17,8 @@ Rails.application.routes.draw do
     post 'join_team', to: 'teams#join'
     resources :teams do
       member do
-        post 'choose_team', to: 'teams#choose_team'
+        delete 'remove_user/:user_id', to: 'teams#remove_user', as: 'remove_user'
+        post 'add_user/:user_id', to: 'teams#add_user', as: 'add_user'
       end
     end
     root "main#index"

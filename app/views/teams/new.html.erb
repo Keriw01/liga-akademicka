@@ -1,5 +1,23 @@
 <div class="container mt-5">
   <h1 class="text-center">Utwórz drużynę</h1>
-
-  <%= render 'form' %>
+  <%= form_with(model: @team, url: @team.persisted? ? team_path(@team) : teams_path, method: @team.persisted? ? :patch : :post) do |form| %>
+    <% if @team.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <% @team.errors.full_messages.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="mb-3">
+      <%= form.label :name, "Nazwa drużyny" %>
+      <%= form.text_field :name, class: "form-control", required: true %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :description, "Opis drużyny" %>
+      <%= form.text_area :description, class: "form-control", required: true %>
+    </div>
+    <div class="mb-3 d-flex justify-content-center">
+      <%= form.submit "Utwórz drużynę", class: "btn btn-success" %>
+    </div>
+  <% end %>
 </div>

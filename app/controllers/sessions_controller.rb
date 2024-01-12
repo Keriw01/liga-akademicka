@@ -1,7 +1,10 @@
 class SessionsController < ApplicationController
+  
+  # Akcja dla wyświetlenia formularza logowania
   def new
   end
 
+  # Akcja obsługująca proces logowania
   def create
     user = User.authenticate_by(email: params[:email], password: params[:password])
     if user
@@ -13,6 +16,7 @@ class SessionsController < ApplicationController
   end
 end
 
+   # Akcja obsługująca proces wylogowywania
   def destroy
     logout current_user
     redirect_to root_path, notice: "Zostałeś wylogowany"

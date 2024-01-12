@@ -1,37 +1,32 @@
 <div class="container mt-5 d-flex align-items-center justify-content-center">
   <div class="col-md-6">
     <div class="mb-3 col-md-10 text-center">
-        <h1 class="mb-4">Aktulizacja hasła</h1>
+      <h1 class="mb-4">Aktulizacja hasła</h1>
     </div>
     <%= form_with model: current_user, url: password_path, class: "row g-3" do |form| %>
-        <% if form.object.errors.any? %>
+      <% if form.object.errors.any? %>
         <div class="alert alert-danger" role="alert">
-            <% form.object.errors.full_messages.each do |message| %>
-                <div><%= message %></div>
-            <% end %>
+          <% form.object.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+          <% end %>
         </div>
-        <% end %>
-
-        <div class="mb-2 col-md-10">
-            <%= form.label :password_challenge, "Obecne hasło" %>
-            <%= form.password_field :password_challenge, class: "form-control", required: true %>
-        </div>
-
-        <div class="mb-2 col-md-10">
-            <%= form.label :password, "Nowe hasło" %>
-            <%= form.password_field :password, class: "form-control", required: true %>
-        </div>
-
-        <div class="mb-2 col-md-10">
-            <%= form.label :password_confirmation %>
-            <%= form.password_field :password_confirmation, class: "form-control", required: true %>
-        </div>
-
-        <div class="mb-3 col-md-10 text-center">
-            <%= link_to "Powrót", profile_path, class: "btn btn-secondary" %>
-            <%= form.submit "Zmień hasło", class: "btn btn-success" %>
-        </div>
-
+      <% end %>
+      <div class="mb-2 col-md-10">
+        <%= form.label :password_challenge, "Obecne hasło" %>
+        <%= form.password_field :password_challenge, class: "form-control", required: true %>
+      </div>
+      <div class="mb-2 col-md-10">
+        <%= form.label :password, "Nowe hasło" %>
+        <%= form.password_field :password, class: "form-control", required: true %>
+      </div>
+      <div class="mb-2 col-md-10">
+        <%= form.label :password_confirmation, "Potwierdzenie hasła" %>
+        <%= form.password_field :password_confirmation, class: "form-control", required: true %>
+      </div>
+      <div class="mb-3 col-md-10 text-center">
+        <%= link_to "Powrót", profile_path, class: "btn btn-secondary" %>
+        <%= form.submit "Zmień hasło", class: "btn btn-success" %>
+      </div>
     <% end %>
-   </div>
+  </div>
 </div>

@@ -17,7 +17,8 @@
       <%= form.text_area :description, class: "form-control", required: true %>
     </div>
     <div class="mb-3 d-flex justify-content-center">
-      <%= form.submit "Utwórz drużynę", class: "btn btn-success" %>
+      <%= link_to "Powrót", profile_path, class: "btn btn-secondary mx-2" %>
+      <%= form.submit "Utwórz drużynę", class: "btn btn-success mx-2" %>
     </div>
   <% end %>
 </div>

@@ -1,7 +1,7 @@
 <div class="container mt-5 d-flex align-items-center justify-content-center">
   <div class="col-4 col-sm-6 ">
     <div class="mb-3 col-lg-12 text-center">
-        <h2 class="mb-4">Zarejestruj się</h2>
+      <h2 class="mb-4">Zarejestruj się</h2>
     </div>
     <%= form_with model: @user, url: registration_path, class: "row g-3" do |form| %>
       <% if form.object.errors.any? %>
@@ -11,23 +11,20 @@
           <% end %>
         </div>
       <% end %>
-
       <div class="mb-2 col-md-12">
         <%= form.label :email, "Email" %>
         <%= form.email_field :email, class: "form-control", required: true %>
       </div>
-
       <div class="mb-2 col-md-12">
         <%= form.label :password, "Hasło" %>
         <%= form.password_field :password, class: "form-control", required: true %>
       </div>
-
       <div class="mb-2 col-md-12">
         <%= form.label :password_confirmation, "Potwierdź hasło" %>
         <%= form.password_field :password_confirmation, class: "form-control", required: true %>
       </div>
-
       <div class="col-md-12 text-center">
+        <%= link_to "Powrót", root_path, class: "btn btn-secondary mx-2" %>
         <%= form.submit "Zarejestruj się", class: "btn btn-primary" %>
       </div>
     <% end %>

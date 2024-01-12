@@ -18,6 +18,7 @@
       <%= form.text_area :description, class: "form-control", required: true %>
     </div>
     <div class="mb-3 d-flex justify-content-center">
+      <%= link_to "Powrót", teams_path, class: "btn btn-secondary mx-2" %>
       <%= form.submit "Zaktualizuj drużynę", class: "btn btn-success" %>
     </div>
   <% end %>
@@ -29,7 +30,7 @@
       <% @team.users.each do |user| %>
         <div class="d-flex justify-content-between p-1">
           <%= user.email %>
-          <%= button_to "Usuń", remove_user_team_path(@team, user), method: :delete, class: 'btn btn-danger btn-sm' %>
+          <%= button_to "Usuń", remove_user_team_path(@team, user), method: :delete, class: "btn btn-danger btn-sm" %>
         </div>
         <hr class="my-2">
       <% end %>
@@ -41,7 +42,7 @@
     <% User.where(team_id: nil).or(User.where.not(id: @team.users)).each do |user| %>
       <div class="d-flex justify-content-between p-1">
         <%= user.email %>
-        <%= button_to "Dodaj", add_user_team_path(@team, user), method: :post, class: 'btn btn-success btn-sm' %>
+        <%= button_to "Dodaj", add_user_team_path(@team, user), method: :post, class: "btn btn-success btn-sm" %>
       </div>
       <hr class="my-2">
     <% end %>

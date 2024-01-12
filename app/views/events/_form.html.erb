@@ -9,32 +9,26 @@
       </ul>
     </div>
   <% end %>
-
   <div class="mb-3">
     <%= form.label "Nazwa pierwszej drużyny", class: "form-label" %>
     <%= form.collection_select :name_first_team, Team.all, :name, :name, { prompt: "Wybierz drużynę" }, class: "form-control" %>
   </div>
-
   <div class="mb-3">
     <%= form.label "Nazwa drugiej drużyny", class: "form-label" %>
     <%= form.collection_select :name_second_team, Team.all, :name, :name, { prompt: "Wybierz drużynę" }, class: "form-control" %>
   </div>
-
   <div class="mb-3">
     <%= form.label "Data spotkania", class: "form-label" %>
     <%= form.datetime_field :date, class: "form-control" %>
   </div>
-
   <div class="mb-3">
     <%= form.label "Wynik pierwszego zespołu", class: "form-label" %>
     <%= form.number_field :team_first_score, class: "form-control" %>
   </div>
-
   <div class="mb-3">
     <%= form.label "Wynik drugiego zespołu", class: "form-label" %>
     <%= form.number_field :team_second_score, class: "form-control" %>
   </div>
-
   <div class="mb-3">
     <%= form.submit "Zapisz", class: "btn btn-primary" %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_10_221615) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_12_224452) do
   create_table "events", force: :cascade do |t|
     t.string "name_first_team"
     t.string "name_second_team"
@@ -28,7 +28,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_221615) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "creator"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,7 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_10_221615) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "role"
+    t.string "role", default: "user"
     t.integer "team_id"
   end
 

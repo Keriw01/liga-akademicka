@@ -5,14 +5,15 @@
     </div>
     <%= form_with model: @user, url: session_path, class: "row g-2" do |form| %>
       <div class="mb-2 col-md-12">
-        <%= form.label :email %>
+        <%= form.label :email, "Email" %>
         <%= form.email_field :email, class: "form-control", required: true%>
       </div>
       <div class="mb-2 col-md-12">
-        <%= form.label :password %>
+        <%= form.label :password, "Hasło" %>
         <%= form.password_field :password, class: "form-control", required: true %>
       </div>
       <div class="col-md-12 text-center">
+        <%= link_to "Powrót", root_path, class: "btn btn-secondary mx-2" %>
         <%= form.submit "Zaloguj", class: "btn btn-success" %>
       </div>
     <% end %>

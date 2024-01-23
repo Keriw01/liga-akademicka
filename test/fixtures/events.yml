@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_first_team: 1
+  id_second_team: 1
+  date: 2024-01-10 20:55:21
+  team_first_score: 1
+  team_second_score: 1
+
+two:
+  id_first_team: 1
+  id_second_team: 1
+  date: 2024-01-10 20:55:21
+  team_first_score: 1
+  team_second_score: 1

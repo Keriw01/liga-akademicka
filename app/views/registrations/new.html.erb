@@ -1,29 +1,32 @@
-<h1>Sign Up</h1>
-
-<%= form_with model: @user, url: registration_path do |form| %>
-    <% if form.object.errors.any? %>
-        <% form.object.errors.full_messages.each do |message| %>
+<div class="container mt-5 d-flex align-items-center justify-content-center">
+  <div class="col-4 col-sm-6 ">
+    <div class="mb-3 col-lg-12 text-center">
+      <h2 class="mb-4">Zarejestruj się</h2>
+    </div>
+    <%= form_with model: @user, url: registration_path, class: "row g-3" do |form| %>
+      <% if form.object.errors.any? %>
+        <div class="alert alert-danger" role="alert">
+          <% form.object.errors.full_messages.each do |message| %>
             <div><%= message %></div>
-        <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="mb-2 col-md-12">
+        <%= form.label :email, "Email" %>
+        <%= form.email_field :email, class: "form-control", required: true %>
+      </div>
+      <div class="mb-2 col-md-12">
+        <%= form.label :password, "Hasło" %>
+        <%= form.password_field :password, class: "form-control", required: true %>
+      </div>
+      <div class="mb-2 col-md-12">
+        <%= form.label :password_confirmation, "Potwierdź hasło" %>
+        <%= form.password_field :password_confirmation, class: "form-control", required: true %>
+      </div>
+      <div class="col-md-12 text-center">
+        <%= link_to "Powrót", root_path, class: "btn btn-secondary mx-2" %>
+        <%= form.submit "Zarejestruj się", class: "btn btn-primary" %>
+      </div>
     <% end %>
-    
-    <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-    </div>
-
-    <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-    </div>
-
-    <div>
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-    </div>
-
-    <div>
-    <%= form.submit "Sign Up" %>
-    </div>
-
-<% end %>
+  </div>
+</div>
